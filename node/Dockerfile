@@ -2,7 +2,13 @@ FROM node:15
 
 WORKDIR /usr/src/app
 
-COPY .. .
+COPY package*.json ./
+
+RUN npm install --save
+
+COPY . .
+
+RUN ls -la
 
 EXPOSE 3000
 
