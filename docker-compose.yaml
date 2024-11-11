@@ -5,6 +5,7 @@ services:
     build:
       context: nginx
     container_name: proxy
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 40s sh -c 'npm install && npm start;'
     restart: always
     networks:
       - node-network
